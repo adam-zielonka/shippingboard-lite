@@ -1,6 +1,11 @@
 .App {
   min-height: 100vh;
   display: grid;
+  grid-template-rows: auto 1fr;
+}
+
+.content {
+  height: 100%;
+  display: grid;
   place-items: center;
-  text-align: center;
 }
