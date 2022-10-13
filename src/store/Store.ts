@@ -1,4 +1,4 @@
-import { makeAutoObservable } from "mobx";
+import { makeAutoObservable } from 'mobx';
 
 export class Store {
   counter = 0;
@@ -9,8 +9,8 @@ export class Store {
 
   riseCounter = () => {
     this.counter++;
-  }
+  };
 }
 
-export const store = new Store()
+export const store = new Store();
 

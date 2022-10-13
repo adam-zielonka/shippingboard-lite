@@ -1,6 +1,6 @@
-import { observer } from 'mobx-react-lite'
-import './App.css'
-import { store } from './store/Store'
+import { observer } from 'mobx-react-lite';
+import './App.css';
+import { store } from './store/Store';
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
         <button onClick={store.riseCounter}>Counter up</button>
       </div>
     </div>
-  )
+  );
 }
 
-export default observer(App)
+export default observer(App);
