@@ -1,14 +1,16 @@
+import { observer } from 'mobx-react-lite'
 import './App.css'
+import { store } from './store/Store'
 
 function App() {
-
   return (
     <div className="App">
       <div>
-        Nothing now
+        {store.counter} <br/>
+        <button onClick={store.riseCounter}>Counter up</button>
       </div>
     </div>
   )
 }
 
-export default App
+export default observer(App)
