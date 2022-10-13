@@ -30,3 +30,6 @@ rules:
     - error
     - always
   react/react-in-jsx-scope: off
+  max-len:
+    - error
+    - 120
