@@ -14,3 +14,11 @@ export class Store {
 
 export const store = new Store();
 
+declare global {
+  interface Window {
+    store: Store
+  }
+}
+
+window.store = store;
+
