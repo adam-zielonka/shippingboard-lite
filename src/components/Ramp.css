@@ -1,0 +1,13 @@
+.Ramp.bp4-card {
+  padding: 0px;
+  height: 200px;
+  text-align: center;
+}
+
+.Ramp header {
+  width: 200px;
+  font-weight: bold;
+  text-align: center;
+  border-bottom: 1px solid gray;
+  padding: 3px;
+}
