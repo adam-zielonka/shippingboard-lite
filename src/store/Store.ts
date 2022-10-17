@@ -1,6 +1,8 @@
 import { makeAutoObservable } from "mobx";
+import { UI } from "./UI";
 
 export class Store {
+  ui = new UI();
   counter = 0;
 
   constructor() {
