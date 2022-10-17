@@ -14,5 +14,10 @@ export const Header = observer(() => {
         <Button icon="th" text="Loadings" onClick={ui.openLoadings} active={ui.isLoadingsOpen} />
       </ButtonGroup>
     </Navbar.Group>
+    <Navbar.Group align={Alignment.RIGHT}>
+      <ButtonGroup minimal>
+        <Button icon="add" text="Add loading" onClick={ui.openLoadingDialog}/>
+      </ButtonGroup>
+    </Navbar.Group>
   </Navbar>;
 });

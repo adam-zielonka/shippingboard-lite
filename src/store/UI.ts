@@ -4,6 +4,7 @@ type View = "dashboard" | "loadings"
 
 export class UI {
   view: View = "dashboard";
+  isLoadingDialogOpen = false;
 
   constructor() {
     makeAutoObservable(this);
@@ -23,5 +24,13 @@ export class UI {
 
   openLoadings = () => {
     this.view = "loadings";
+  };
+
+  openLoadingDialog = () => {
+    this.isLoadingDialogOpen = true;
+  };
+
+  closeLoadingDialog = () => {
+    this.isLoadingDialogOpen = false;
   };
 }
