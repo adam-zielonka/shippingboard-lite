@@ -1,11 +1,16 @@
 import { makeAutoObservable } from "mobx";
+import { api } from "./Api";
+import { Customer } from "./Customer";
 import { UI } from "./UI";
 
 export class Store {
   ui = new UI();
+  customers: Customer[];
 
   constructor() {
     makeAutoObservable(this);
+
+    this.customers = api.getCustomers();
   }
 }
 
