@@ -7,7 +7,7 @@ export const Header = observer(() => {
     
   return <Navbar>
     <Navbar.Group align={Alignment.LEFT}>
-      <Navbar.Heading>ShippingBoard Light</Navbar.Heading>
+      <Navbar.Heading>ShippingBoard Lite</Navbar.Heading>
       <Navbar.Divider />
       <ButtonGroup minimal>
         <Button icon="dashboard" text="Dashboard" onClick={ui.openDashboard} active={ui.isDashboardOpen}/>
