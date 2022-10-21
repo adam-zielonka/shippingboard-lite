@@ -11,11 +11,13 @@ export const Content = observer(() => {
   }
 
   return <div className="Content">
-    <Ramp id="A"/>
-    <Ramp id="B"/>
-    <Ramp id="C"/>
-    <Ramp id="D"/>
-    <Ramp id="E"/>
+    <Ramp id="A" ids={[]}/>
+    <Ramp id="B" ids={[0]}/>
+    <Ramp id="C" ids={[1,2]}/>
+    <Ramp id="D" ids={[3,4,5]}/>
+    <Ramp id="E" ids={[6,0]}/>
+    <Ramp id="F" ids={[]}/>
+    <Ramp id="G" ids={[1,2,3]}/>
   </div>;
 });
 
