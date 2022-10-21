@@ -1,5 +1,5 @@
 import { makeAutoObservable } from "mobx";
-import { api } from "./test";
+import { api } from "./api";
 import { Customer } from "./Customer";
 import { UI } from "./UI";
 
