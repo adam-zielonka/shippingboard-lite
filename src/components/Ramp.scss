@@ -13,7 +13,7 @@
     );
   }
   
-  header {
+  > header {
     font-weight: bold;
     text-align: center;
     border-bottom: 1px solid rgb(187, 187, 187);
@@ -21,7 +21,7 @@
     background-color: white;
   }
 
-  main {
+  > main {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
@@ -32,16 +32,66 @@
 
   .Loading {
     &.bp4-card {
-      display: flex;
       height: 180px;
       width: 180px;
       padding: 3px;
-    }
-  
-    div {
+
       display: grid;
-      width: 100vh;
-      align-items: center;
+      grid-template-rows: 12% 58% 30%;
+    }
+
+    > header {
+      background-color: rgb(235, 234, 234);
+      font-weight: bold;
+      text-align: left;
+      padding-left: 4px;
+      border-top-left-radius: 2px;
+      border-top-right-radius: 2px;
+      
+      display: flex;
+      place-items: center;
+    }
+
+    > main {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      padding: 3px;
+
+      .details {
+        display: flex;
+        justify-content: space-between;
+        align-items: baseline;
+
+        font-size: smaller;
+        text-align: left;
+  
+        > div > span {
+          font-weight: bold;
+          font-size: medium;
+        }
+      }
+    
+      .customer {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+  
+        .name {
+          font-weight: bold;
+        }
+  
+        .city, .id {
+          font-size: smaller;
+        }
+      }
+    }
+
+    > footer {
+      border-top: 1px solid rgb(205, 202, 202);
+      display: grid;
+      place-items: center;
+      font-size: medium;
     }
   }
 }

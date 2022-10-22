@@ -17,10 +17,26 @@ export const Loading = observer(({ id }: { id: number }) => {
   const { ui, customers } = store;
   
   return <Card className="Loading" elevation={Elevation.TWO} interactive onClick={ui.openLoadingDialog}>
-    <div>
-      <b>{customers[id].name}</b>
-      <small>{customers[id].id.replace(/^0*/,"")}</small>
-      <i>{customers[id].city} {customers[id].country}</i>
-    </div>
+    <header>
+      <div>2077</div>
+    </header>
+    <main>
+      <div className="details">
+      05/18 
+        <div>
+          <span>09:00</span>-12:00
+        </div>
+      </div>
+      <div className="customer">
+        <div className="name">{customers[id].name}</div>
+        <div className="city">{customers[id].country}, {customers[id].city}</div>
+        <div className="id">{customers[id].id.replace(/^0*/,"")}</div>
+      </div>
+    </main>
+    <footer>
+      <div>
+        <b>14</b> of <b>36</b>
+      </div>
+    </footer>
   </Card>;
 });
