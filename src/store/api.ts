@@ -18,8 +18,8 @@ export class API {
       l.ramp_id,
       l.pallets,
       l.picked_hus,
-      new DateTime(`${l.planned_start}`),
-      new DateTime(`${l.planned_end}`),
+      DateTime.fromAPI(l.planned_start),
+      DateTime.fromAPI(l.planned_end),
       l.deliveries,
     ));
   }
