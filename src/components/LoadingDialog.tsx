@@ -2,7 +2,7 @@ import { Button, Classes, ControlGroup, Dialog, FormGroup, InputGroup, NumericIn
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { store } from "../store/Store";
-import "./LoadingDialog.css";
+import "./LoadingDialog.scss";
 
 export const LoadingDialog = observer(() => {
   const { ui } = store;

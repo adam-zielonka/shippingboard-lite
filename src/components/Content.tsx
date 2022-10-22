@@ -1,7 +1,7 @@
 import { observer } from "mobx-react-lite";
 import { store } from "../store/Store";
 import { Ramp } from "./Ramp";
-import "./Content.css";
+import "./Content.scss";
 
 export const Content = observer(() => {
   const { ui } = store;
