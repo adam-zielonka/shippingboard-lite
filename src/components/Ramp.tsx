@@ -19,7 +19,7 @@ export const Ramp = observer((ramp: { id: string, ids: number[] }) => {
   
   return <Card className="Ramp" elevation={Elevation.ONE}>
     <header>{ramp.id}</header>
-    <div>
+    <div className="rampValue">
       {ramp.ids.map((id, i) => <Loading key={i} id={id}/>)}
     </div>
   </Card>;
