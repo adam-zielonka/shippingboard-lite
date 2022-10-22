@@ -18,11 +18,26 @@ export class API {
       l.ramp_id,
       l.pallets,
       l.picked_hus,
-      DateTime.fromAPI(l.planned_start),
-      DateTime.fromAPI(l.planned_end),
+      dateTimeFromServer(l.planned_start),
+      dateTimeFromServer(l.planned_end),
       l.deliveries,
     ));
   }
 }
 
 export const api = new API();
+
+function dateTimeFromServer(dataTime: number): DateTime {
+  const [, year, month, date, hours, minutes] = dataTime.toString()
+    .match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})/) || [];
+  return new DateTime(new Date(+year, (+month)-1, +date, +hours, +minutes)); 
+}
+
+function dateTimeToSever(dateTime: DateTime): number {
+  const year = dateTime.dateTime.getFullYear();
+  const month = dateTime.dateTime.toLocaleDateString("en", { month: "2-digit" });
+  const day = dateTime.dateTime.toLocaleDateString("en", { day: "2-digit" });
+  const hour = dateTime.dateTime.toLocaleTimeString("en", { hour: "2-digit", hour12: false });
+  const minutes = dateTime.dateTime.toLocaleTimeString("en", {  minute: "2-digit" });
+  return +`${year}${month}${day}${hour}${minutes}`;
+}

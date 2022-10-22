@@ -30,7 +30,7 @@ export class Loading {
 }
 
 export class DateTime {
-  constructor(private dateTime: Date) {
+  constructor(public dateTime: Date) {
     makeAutoObservable(this);
   }
 
@@ -40,20 +40,5 @@ export class DateTime {
 
   get time(): string {
     return this.dateTime.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false });
-  }
-
-  static fromAPI = (dataTime: number): DateTime => {
-    const [, year, month, date, hours, minutes] = dataTime.toString()
-      .match(/(\d{4})(\d{2})(\d{2})(\d{2})(\d{2})/) || [];
-    return new DateTime(new Date(+year, (+month)-1, +date, +hours, +minutes)); 
-  };
-
-  get toAPI(): number {
-    const year = this.dateTime.getFullYear();
-    const month = this.dateTime.toLocaleDateString("en", { month: "2-digit" });
-    const day = this.dateTime.toLocaleDateString("en", { day: "2-digit" });
-    const hour = this.dateTime.toLocaleTimeString("en", { hour: "2-digit", hour12: false });
-    const minutes = this.dateTime.toLocaleTimeString("en", {  minute: "2-digit" });
-    return +`${year}${month}${day}${hour}${minutes}`;
   }
 }
