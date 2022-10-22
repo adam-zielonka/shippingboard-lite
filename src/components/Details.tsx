@@ -2,15 +2,37 @@ import { Button, Classes, ControlGroup, Dialog, FormGroup, InputGroup, NumericIn
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { store } from "../store/Store";
-import "./LoadingDialog.scss";
+import "./Details.scss";
 
-export const LoadingDialog = observer(() => {
+export const Details = observer(() => {
   const { ui } = store;
   const [duration, setDuration] = useState(4);
   const [pallets, setPallets] = useState(3);
+  const [ramp, setRamp] = useState("A");
     
-  return <Dialog isOpen={ui.isLoadingDialogOpen} title={"Loading"} onClose={ui.closeLoadingDialog}>
+  return <Dialog className="Details" isOpen={ui.isLoadingDialogOpen} title={"Loading"} onClose={ui.closeLoadingDialog}>
     <div className={Classes.DIALOG_BODY}>
+      <div className="ramps">
+        <FormGroup label="Ramp:" className="ramps-list">
+          {["A","B","C","D","E","F","G"].map(r => 
+            <Button key={r} onClick={() => setRamp(r)} active={r === ramp}>{r}</Button>
+          )}
+        </FormGroup>
+      </div>
+      <div className="times">
+        <FormGroup label="Track arrived:">
+          <InputGroup value="13:14"/>
+        </FormGroup>
+        <FormGroup label="Start of loading:">
+          <InputGroup value="13:14"/>
+        </FormGroup>
+        <FormGroup label="End of loading:">
+          <InputGroup value="13:14"/>
+        </FormGroup>
+        <FormGroup label="Track left:">
+          <InputGroup value="13:14"/>
+        </FormGroup>
+      </div>
       <div className="datetime">
         <FormGroup label="Date:" labelFor="date">
           <InputGroup id="date" value="2022-11-11"/>

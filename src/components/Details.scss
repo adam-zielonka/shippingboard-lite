@@ -1,0 +1,28 @@
+.Details {
+  .datetime {
+    display: grid;
+    grid-template-columns: 95px 57px 1fr;
+    gap: 15px;
+  }
+  
+  .pallets {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+
+  .times {
+    display: flex;
+    gap: 10px;
+  }
+
+  .ramps {
+    width: 100%;
+  }
+  
+  .ramps-list > div {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+  }
+}
+
