@@ -76,8 +76,8 @@ export const RAMPS = [
 
 function makeToday(time: string): number {
   const today = new Date();
-  const month = today.getMonth() + 1 < 10 ? `0${today.getMonth()+1}` : `${today.getMonth()+1}`;
-  const date = today.getDate() < 10 ? `0${today.getDate()}` : `${today.getDate()}`;
+  const month = today.toLocaleDateString("en", { month: "2-digit" });
+  const date = today.toLocaleDateString("en", { day: "2-digit" });
   return +`${today.getFullYear()}${month}${date}${time}`;
 }
 

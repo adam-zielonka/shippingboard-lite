@@ -41,20 +41,10 @@ export class DateTime {
   }
 
   get date(): string {
-    return `${addZero(this.dateTime.getMonth()+1)}/${addZero(this.dateTime.getDate())}`;
+    return this.dateTime.toLocaleDateString("en", { month: "2-digit", day: "2-digit" });
   }
 
   get time(): string {
-    return `${addZero(this.dateTime.getHours())}:${addZero(this.dateTime.getMinutes())}`;
+    return this.dateTime.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false });
   }
-}
-
-function addZero(value: number): string {
-  const text = value.toString();
-
-  if (text.length === 1) {
-    return "0" + text;
-  }
-
-  return text;
 }
