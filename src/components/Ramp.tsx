@@ -1,24 +1,27 @@
 import { Card, Elevation } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
+import { Loading as LoadingType } from "../store/Loading";
+import { Ramp as RampType } from "../store/Ramp";
 import { store } from "../store/Store";
 import "./Ramp.scss";
 
-export const Ramp = observer((ramp: { id: string, ids: number[] }) => {
+export const Ramp = observer(({ ramp }: { ramp: RampType }) => {
   
   return <Card className="Ramp" elevation={Elevation.ONE}>
-    <header>{ramp.id}</header>
+    <header>{ramp.description}</header>
     <main>
-      {ramp.ids.map((id, i) => <Loading key={i} id={id}/>)}
+      {ramp.loadings.map(l => <Loading key={l.id} loading={l}/>)}
     </main>
   </Card>;
 });
 
-export const Loading = observer(({ id }: { id: number }) => {
-  const { ui, customers } = store;
+export const Loading = observer(({ loading }: { loading: LoadingType }) => {
+  const { ui } = store;
+  const { customer } = loading;
   
   return <Card className="Loading" elevation={Elevation.TWO} interactive onClick={ui.openLoadingDialog}>
     <header>
-      <div>2077</div>
+      <div>{loading.id}</div>
     </header>
     <main>
       <div className="details">
@@ -28,9 +31,11 @@ export const Loading = observer(({ id }: { id: number }) => {
         </div>
       </div>
       <div className="customer">
-        <div className="name">{customers[id].name}</div>
-        <div className="city">{customers[id].country}, {customers[id].city}</div>
-        <div className="id">{customers[id].id.replace(/^0*/,"")}</div>
+        {customer && <>
+          <div className="name">{customer.name}</div>
+          <div className="city">{customer.country}, {customer.city}</div>
+          <div className="id">{customer.id.replace(/^0*/,"")}</div>
+        </>}
       </div>
     </main>
     <footer>
