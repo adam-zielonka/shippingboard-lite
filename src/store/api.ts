@@ -1,6 +1,6 @@
 import { Customer } from "./Customer";
 import { CUSTOMERS, LOADINGS, RAMPS } from "./fakeApi";
-import { Loading } from "./Loading";
+import { DateTime, Loading } from "./Loading";
 import { Ramp } from "./Ramp";
 
 export class API {
@@ -18,8 +18,8 @@ export class API {
       l.ramp_id,
       l.pallets,
       l.picked_hus,
-      l.planned_start,
-      l.planned_end,
+      new DateTime(`${l.planned_start}`),
+      new DateTime(`${l.planned_end}`),
       l.deliveries,
     ));
   }

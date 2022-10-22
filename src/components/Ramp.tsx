@@ -25,9 +25,9 @@ export const Loading = observer(({ loading }: { loading: LoadingType }) => {
     </header>
     <main>
       <div className="details">
-      05/18 
+        {loading.start.date} 
         <div>
-          <span>09:00</span>-12:00
+          <span>{loading.start.time}</span>-{loading.end.time}
         </div>
       </div>
       <div className="customer">
@@ -40,7 +40,7 @@ export const Loading = observer(({ loading }: { loading: LoadingType }) => {
     </main>
     <footer>
       <div>
-        <b>14</b> of <b>36</b>
+        <b>{loading.picked}</b> of <b>{loading.pallets}</b>
       </div>
     </footer>
   </Card>;
