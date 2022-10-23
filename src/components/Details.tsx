@@ -30,10 +30,10 @@ export const Details = observer(() => {
     <div className={Classes.DIALOG_BODY}>
       <section className="datetime">
         <FormGroup label="Date:" labelFor="date">
-          <InputGroup id="date" value={loading.start.date}/>
+          <InputGroup id="date" value={loading.start.date} readOnly/>
         </FormGroup>
         <FormGroup label="Time:" labelFor="time">
-          <InputGroup id="time" value={loading.start.time}/>
+          <InputGroup id="time" value={loading.start.time} readOnly/>
         </FormGroup>
         <FormGroup label="Duration:">
           <Slider value={loading.duration} min={0} max={8} stepSize={0.5} labelStepSize={2}
