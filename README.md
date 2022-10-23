@@ -14,3 +14,7 @@ const options = { month: "2-digit", day: "2-digit" };
 console.log(date.toLocaleDateString("en", options)); // 10/22
 console.log(date.toLocaleDateString("pl", options)); // 22.10
 ```
+
+### Error in DB crash application
+
+Maybe not existing customers or ramp
