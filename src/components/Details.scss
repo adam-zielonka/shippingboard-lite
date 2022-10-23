@@ -27,6 +27,7 @@
     display: flex;
     justify-content: space-between;
     width: 100%;
+    flex-wrap: wrap;
   }
 
   .bp4-dialog-body {
@@ -45,5 +46,8 @@
     }
   }
 
+  .ramp-button {
+    width: 30px;
+  }
 }
 

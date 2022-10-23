@@ -17,4 +17,8 @@ export class Ramp {
   get isEmpty(): boolean {
     return !this.loadings.length;
   }
+
+  get quantity(): number {
+    return this.loadings.length;
+  }
 }
