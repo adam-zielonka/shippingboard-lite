@@ -19,7 +19,7 @@ export const Loading = observer(({ loading }: { loading: LoadingType }) => {
   const { ui } = store;
   const { customer } = loading;
   
-  return <Card className="Loading" elevation={Elevation.TWO} interactive onClick={ui.openLoadingDialog}>
+  return <Card className="Loading" elevation={Elevation.TWO} interactive onClick={() => ui.openLoadingDialog(loading)}>
     <header>
       <div>{loading.id}</div>
     </header>

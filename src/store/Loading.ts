@@ -27,6 +27,14 @@ export class Loading {
 
     return store.customers.find(c => this.deliveries[0].ship_to === c.id);
   }
+
+  setRamp = (ramp: string) => {
+    this.ramp = ramp;
+  };
+
+  static create = (): Loading => {
+    return new Loading("New", "001", 0, 0, new DateTime(new Date()), new DateTime(new Date()), []);
+  };
 }
 
 export class DateTime {

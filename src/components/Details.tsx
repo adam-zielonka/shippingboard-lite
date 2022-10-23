@@ -5,17 +5,35 @@ import { store } from "../store/Store";
 import "./Details.scss";
 
 export const Details = observer(() => {
-  const { ui } = store;
+  const { ui, ramps } = store;
+  const loading = ui.selectedLoading;
   const [duration, setDuration] = useState(4);
   const [pallets, setPallets] = useState(3);
-  const [ramp, setRamp] = useState("A");
+
+  const [open, setOpen] = useState(true);
+
+  function startClose() {
+    setOpen(false);
+  }
+
+  function endClose() {
+    ui.closeLoadingDialog();
+    setOpen(true);
+  }
+
+  if (!loading) {
+    return null;
+  }
     
-  return <Dialog className="Details" isOpen={ui.isLoadingDialogOpen} title={"Loading"} onClose={ui.closeLoadingDialog}>
+  return <Dialog className="Details" isOpen={open} title={loading.id} 
+    onClose={startClose} onClosed={endClose}>
     <div className={Classes.DIALOG_BODY}>
       <div className="ramps">
         <FormGroup label="Ramp:" className="ramps-list">
-          {["A","B","C","D","E","F","G"].map(r => 
-            <Button key={r} onClick={() => setRamp(r)} active={r === ramp}>{r}</Button>
+          {ramps.map((r) => 
+            <Button key={r.id} onClick={() => loading.setRamp(r.id)} active={r.id === loading.ramp}>
+              {r.description}
+            </Button>
           )}
         </FormGroup>
       </div>

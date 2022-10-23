@@ -1,5 +1,6 @@
 import { Alignment, Button, ButtonGroup, Navbar } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
+import { Loading } from "../store/Loading";
 import { store } from "../store/Store";
 
 export const Header = observer(() => {
@@ -16,7 +17,7 @@ export const Header = observer(() => {
     </Navbar.Group>
     <Navbar.Group align={Alignment.RIGHT}>
       <ButtonGroup minimal>
-        <Button icon="add" text="Add loading" onClick={ui.openLoadingDialog}/>
+        <Button icon="add" text="Add loading" onClick={() => ui.openLoadingDialog(Loading.create())}/>
       </ButtonGroup>
     </Navbar.Group>
   </Navbar>;
