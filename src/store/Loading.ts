@@ -7,7 +7,6 @@ type Delivery = {
 }
 
 export class Loading {
-
   constructor(
     public id: string,
     public ramp: string,
@@ -28,8 +27,16 @@ export class Loading {
     return store.customers.find(c => this.deliveries[0].ship_to === c.id);
   }
 
+  get duration(): number {
+    return this.start.duration(this.end); 
+  }
+
   setRamp = (ramp: string) => {
     this.ramp = ramp;
+  };
+
+  setDuration = (value: number) => {
+    this.end = new DateTime(new Date(this.start.dateTime.getTime() + value * 3600000));
   };
 
   static create = (): Loading => {
@@ -49,4 +56,8 @@ export class DateTime {
   get time(): string {
     return this.dateTime.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false });
   }
+
+  duration = (dt: DateTime): number => {
+    return (dt.dateTime.getTime() - this.dateTime.getTime())/(3600000);
+  };
 }
