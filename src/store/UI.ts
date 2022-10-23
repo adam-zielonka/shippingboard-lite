@@ -5,7 +5,6 @@ type View = "dashboard" | "loadings"
 
 export class UI {
   view: View = "dashboard";
-  // isLoadingDialogOpen = false;
   selectedLoading?: Loading;
 
   constructor() {

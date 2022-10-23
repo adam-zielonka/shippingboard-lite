@@ -1,3 +1,4 @@
+import { Customer } from "../store/Customer";
 import { DateTime } from "../store/DateTime";
 import { Ramp } from "../store/Ramp";
 import { store } from "../store/Store";
@@ -15,6 +16,11 @@ export class FromResponse {
     }
   
     return store.ramps.find(ramp => ramp.id === ramp_id) || new Ramp(ramp_id, `(${ramp_id})`);
+  }
+
+  static customer(customer_id: string): Customer {
+    return store.customers.find(customer => customer.id === customer_id) 
+      || new Customer(customer_id, "", "", "");
   }
 }
 

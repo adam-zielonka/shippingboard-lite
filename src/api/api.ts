@@ -3,6 +3,7 @@ import { CUSTOMERS, LOADINGS, RAMPS } from "./fakeApi";
 import { Loading } from "../store/Loading";
 import { Ramp } from "../store/Ramp";
 import { FromResponse } from "./parse";
+import { Delivery } from "../store/Delivery";
 
 export class API {
   getCustomers(): Customer[] {
@@ -21,7 +22,9 @@ export class API {
       loading.picked_hus,
       FromResponse.dateTime(loading.planned_start),
       FromResponse.dateTime(loading.planned_end),
-      loading.deliveries,
+      loading.deliveries.map(delivery => new Delivery(
+        FromResponse.customer(delivery.ship_to)
+      )),
     ));
   }
 }
