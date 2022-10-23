@@ -188,7 +188,7 @@ export const LOADINGS = [
   },
   {
     "loading_id": "0007709",
-    "ramp_id": "007",
+    "ramp_id": "",
     "pallets": 100,
     "picked_hus": 99,
     "planned_start": makeToday("1600"),
@@ -201,7 +201,7 @@ export const LOADINGS = [
   },
   {
     "loading_id": "0007710",
-    "ramp_id": "007",
+    "ramp_id": "",
     "pallets": 1,
     "picked_hus": 0,
     "planned_start": makeToday("1700"),
@@ -214,7 +214,7 @@ export const LOADINGS = [
   },
   {
     "loading_id": "0007711",
-    "ramp_id": "007",
+    "ramp_id": "",
     "pallets": 39,
     "picked_hus": 14,
     "planned_start": makeToday("1900"),

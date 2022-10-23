@@ -13,7 +13,11 @@ export class API {
   }
 
   getLoadings(ramps: Ramp[]): Loading[] {
-    function findRamp(ramp_id: string): Ramp {
+    function findRamp(ramp_id: string): Ramp | undefined {
+      if (!ramp_id) {
+        return undefined;
+      }
+
       return ramps.find(ramp => ramp.id === ramp_id) || new Ramp(ramp_id, `(${ramp_id})`);
     }
 
