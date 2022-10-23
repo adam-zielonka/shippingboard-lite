@@ -1,12 +1,8 @@
-import { makeAutoObservable } from "mobx";
-
 export class Customer {
   constructor(
-    public id: string,
-    public name: string,
-    public city: string,
-    public country: string,  
-  ) {
-    makeAutoObservable(this);
-  }
+    public readonly id: string,
+    public readonly name: string,
+    public readonly city: string,
+    public readonly country: string,  
+  ) {}
 }
