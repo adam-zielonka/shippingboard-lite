@@ -12,10 +12,14 @@ export class API {
     return RAMPS.map(r => new Ramp(r.ramp_id, r.description));
   }
 
-  getLoadings(): Loading[] {
+  getLoadings(ramps: Ramp[]): Loading[] {
+    function findRamp(ramp_id: string): Ramp {
+      return ramps.find(ramp => ramp.id === ramp_id) || new Ramp(ramp_id, `(${ramp_id})`);
+    }
+
     return LOADINGS.map(l => new Loading(
       l.loading_id,
-      l.ramp_id,
+      findRamp(l.ramp_id),
       l.pallets,
       l.picked_hus,
       dateTimeFromServer(l.planned_start),

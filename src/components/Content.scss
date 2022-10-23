@@ -4,3 +4,14 @@
   margin: 10px;
   flex-wrap: wrap;
 }
+
+.LoadingsTable {
+  .line {
+    padding: 5px;
+    display: flex;
+    gap: 10px;
+    &:hover {
+      background-color: rgb(219, 219, 219);
+    } 
+  }
+}

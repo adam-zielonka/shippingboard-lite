@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { Customer } from "./Customer";
+import { Ramp } from "./Ramp";
 import { store } from "./Store";
 
 type Delivery = {
@@ -9,7 +10,7 @@ type Delivery = {
 export class Loading {
   constructor(
     public id: string,
-    public ramp: string,
+    public ramp: Ramp | undefined,
     public pallets: number,
     public picked: number,
     public start: DateTime,
@@ -31,8 +32,12 @@ export class Loading {
     return this.start.duration(this.end); 
   }
 
-  setRamp = (ramp: string) => {
+  setRamp = (ramp: Ramp) => {
     this.ramp = ramp;
+  };
+
+  clearRamp = () => {
+    this.ramp = undefined;
   };
 
   setDuration = (value: number) => {
@@ -40,7 +45,23 @@ export class Loading {
   };
 
   static create = (): Loading => {
-    return new Loading("New", "001", 0, 0, new DateTime(new Date()), new DateTime(new Date()), []);
+    const date = new Date();
+    date.setMilliseconds(0);
+    date.setSeconds(0);
+
+    const loading = new Loading(
+      "New",
+      undefined,
+      0,
+      0,
+      new DateTime(new Date(date)),
+      new DateTime(new Date(date)),
+      [],
+    );
+
+    loading.setDuration(4);
+
+    return loading;
   };
 }
 

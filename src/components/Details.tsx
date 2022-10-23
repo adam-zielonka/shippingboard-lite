@@ -1,4 +1,7 @@
-import { Button, Classes, ControlGroup, Dialog, FormGroup, InputGroup, Intent, NumericInput, Slider } from "@blueprintjs/core";
+import { 
+  Button, Classes, ControlGroup, Dialog, 
+  FormGroup, InputGroup, Intent, NumericInput, Slider 
+} from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { store } from "../store/Store";
@@ -40,38 +43,41 @@ export const Details = observer(() => {
       <section className="ramps">
         <FormGroup label="Ramp:" className="ramps-list">
           {ramps.map((r) => 
-            <Button key={r.id} onClick={() => loading.setRamp(r.id)} active={r.id === loading.ramp}
-              outlined intent={r.isEmpty ? Intent.NONE : r.id === loading.ramp ? Intent.PRIMARY : Intent.DANGER}>
+            <Button key={r.id} onClick={() => loading.setRamp(r)} active={r === loading.ramp}
+              outlined intent={r.isEmpty ? Intent.NONE : r === loading.ramp ? Intent.PRIMARY : Intent.DANGER}>
               {r.description}
             </Button>
           )}
+          <Button onClick={loading.clearRamp} active={!loading.ramp} outlined>
+            ∅
+          </Button>
         </FormGroup>
       </section>
       <section>
         <ControlGroup fill>
           <FormGroup label="Pallets:">
-            <NumericInput value={loading.picked} fill/>
+            <NumericInput value={loading.picked} fill readOnly/>
           </FormGroup>
           <FormGroup label="Loaded Pallets:">
-            <NumericInput value={loading.pallets} fill/>
+            <NumericInput value={loading.pallets} fill readOnly/>
           </FormGroup>
           <FormGroup label="Truck No.:">
-            <InputGroup id="date" value="CP 2022 77" fill/>
+            <InputGroup id="date" value="CP 2022 77" fill readOnly/>
           </FormGroup>
         </ControlGroup>
       </section>
       <section className="times">
         <FormGroup label="Track arrived:">
-          <InputGroup value="13:14"/>
+          <InputGroup value="13:14" readOnly/>
         </FormGroup>
         <FormGroup label="Start of loading:">
-          <InputGroup value="13:14"/>
+          <InputGroup value="13:14" readOnly/>
         </FormGroup>
         <FormGroup label="End of loading:">
-          <InputGroup value="13:14"/>
+          <InputGroup value="13:14" readOnly/>
         </FormGroup>
         <FormGroup label="Track left:">
-          <InputGroup value="13:14"/>
+          <InputGroup value="13:14" readOnly/>
         </FormGroup>
       </section>
     </div>

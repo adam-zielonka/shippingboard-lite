@@ -16,7 +16,7 @@ export class Store {
 
     this.customers = api.getCustomers();
     this.ramps = api.getRamps();
-    this.loadings = api.getLoadings();
+    this.loadings = api.getLoadings(this.ramps);
   }
 }
 

@@ -16,5 +16,16 @@ export const Content = observer(() => {
 });
 
 export const LoadingsTable = observer(() => {
-  return <div></div>;
+  return <div className="LoadingsTable">
+    {store.loadings.map(l => <div className="line" key={l.id} 
+      onClick={() => store.ui.openLoadingDialog(l)}>
+      <div>{l.id}</div>
+      <div>{l.start.date}</div>
+      <div>{l.start.time}</div>
+      <div>{l.end.time}</div>
+      <div>{l.picked}</div>
+      <div>{l.pallets}</div>
+      <div>{l.ramp?.description}</div>
+    </div>)}
+  </div>;
 });
