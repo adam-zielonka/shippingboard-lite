@@ -1,4 +1,4 @@
-import { Button, Classes, ControlGroup, Dialog, FormGroup, InputGroup, NumericInput, Slider } from "@blueprintjs/core";
+import { Button, Classes, ControlGroup, Dialog, FormGroup, InputGroup, Intent, NumericInput, Slider } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
 import { useState } from "react";
 import { store } from "../store/Store";
@@ -40,7 +40,8 @@ export const Details = observer(() => {
       <section className="ramps">
         <FormGroup label="Ramp:" className="ramps-list">
           {ramps.map((r) => 
-            <Button key={r.id} onClick={() => loading.setRamp(r.id)} active={r.id === loading.ramp}>
+            <Button key={r.id} onClick={() => loading.setRamp(r.id)} active={r.id === loading.ramp}
+              outlined intent={r.isEmpty ? Intent.NONE : r.id === loading.ramp ? Intent.PRIMARY : Intent.DANGER}>
               {r.description}
             </Button>
           )}

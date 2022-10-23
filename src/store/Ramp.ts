@@ -13,4 +13,8 @@ export class Ramp {
   get loadings(): Loading[]{
     return store.loadings.filter(l => l.ramp === this.id);
   }
+
+  get isEmpty(): boolean {
+    return !this.loadings.length;
+  }
 }
