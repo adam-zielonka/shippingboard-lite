@@ -1,6 +1,6 @@
 import { observer } from "mobx-react-lite";
 import { store } from "../store/Store";
-import { Ramp } from "./Ramp";
+import { RampBox } from "./Ramp";
 import "./Content.scss";
 
 export const Content = observer(() => {
@@ -11,7 +11,7 @@ export const Content = observer(() => {
   }
 
   return <div className="Content">
-    {ramps.map(ramp => <Ramp key={ramp.id} ramp={ramp} />)}
+    {ramps.map(ramp => <RampBox key={ramp.id} ramp={ramp} />)}
   </div>;
 });
 

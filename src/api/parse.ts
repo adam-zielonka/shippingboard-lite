@@ -1,4 +1,4 @@
-import { DateTime } from "../store/Loading";
+import { DateTime } from "../store/DateTime";
 import { Ramp } from "../store/Ramp";
 import { store } from "../store/Store";
 

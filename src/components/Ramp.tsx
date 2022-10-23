@@ -1,21 +1,21 @@
 import { Card, Elevation } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
-import { Loading as LoadingType } from "../store/Loading";
-import { Ramp as RampType } from "../store/Ramp";
+import { Loading } from "../store/Loading";
+import { Ramp } from "../store/Ramp";
 import { store } from "../store/Store";
 import "./Ramp.scss";
 
-export const Ramp = observer(({ ramp }: { ramp: RampType }) => {
+export const RampBox = observer(({ ramp }: { ramp: Ramp }) => {
   
   return <Card className="Ramp" elevation={Elevation.ONE}>
     <header>{ramp.description}</header>
     <main>
-      {ramp.loadings.map(l => <Loading key={l.id} loading={l}/>)}
+      {ramp.loadings.map(l => <LoadingBox key={l.id} loading={l}/>)}
     </main>
   </Card>;
 });
 
-export const Loading = observer(({ loading }: { loading: LoadingType }) => {
+export const LoadingBox = observer(({ loading }: { loading: Loading }) => {
   const { ui } = store;
   const { customer } = loading;
   

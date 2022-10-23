@@ -1,5 +1,6 @@
 import { makeAutoObservable } from "mobx";
 import { Customer } from "./Customer";
+import { DateTime } from "./DateTime";
 import { Ramp } from "./Ramp";
 import { store } from "./Store";
 
@@ -40,8 +41,8 @@ export class Loading {
     this.ramp = undefined;
   };
 
-  setDuration = (value: number) => {
-    this.end = new DateTime(new Date(this.start.dateTime.getTime() + value * 3600000));
+  setDuration = (duration: number) => {
+    this.end.update(this.start.dateAfterDuration(duration));
   };
 
   static create = (): Loading => {
@@ -62,23 +63,5 @@ export class Loading {
     loading.setDuration(4);
 
     return loading;
-  };
-}
-
-export class DateTime {
-  constructor(public dateTime: Date) {
-    makeAutoObservable(this);
-  }
-
-  get date(): string {
-    return this.dateTime.toLocaleDateString("en", { month: "2-digit", day: "2-digit" });
-  }
-
-  get time(): string {
-    return this.dateTime.toLocaleTimeString("en", { hour: "2-digit", minute: "2-digit", hour12: false });
-  }
-
-  duration = (dt: DateTime): number => {
-    return (dt.dateTime.getTime() - this.dateTime.getTime())/(3600000);
   };
 }
