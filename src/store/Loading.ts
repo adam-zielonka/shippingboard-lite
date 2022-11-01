@@ -30,6 +30,23 @@ export class Loading {
     return this.start.duration(this.end); 
   }
 
+  get loadedRatio(): number {
+    if (!this.pallets) return 0;
+    return this.picked/this.pallets;
+  }
+
+  get isLoaded(): boolean {
+    return this.pallets > 0 && this.picked === this.pallets;
+  }
+
+  get isInProgress(): boolean {
+    return this.picked !== this.pallets;
+  }
+
+  get isStarted(): boolean {
+    return this.pallets > 0 && this.picked !== 0;
+  }
+
   setRamp = (ramp: Ramp) => {
     this.ramp = ramp;
   };

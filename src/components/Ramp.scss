@@ -28,6 +28,18 @@
     padding: 10px;
     box-shadow: inset 0 0 7px rgb(187, 187, 187);
     min-height: 200px;
+
+    &.loaded {
+      background-color: rgba(31, 177, 31, 0.315);
+    }
+
+    &.progress {
+      background-color: rgba(204, 169, 26, 0.315);
+    }
+
+    &.not-started {
+      background-color: rgba(204, 26, 26, 0.315);;
+    }
   }
 
   .Loading {

@@ -10,14 +10,17 @@ export const Header = observer(() => {
     <Navbar.Group align={Alignment.LEFT}>
       <Navbar.Heading>ShippingBoard Lite</Navbar.Heading>
       <Navbar.Divider />
-      <ButtonGroup minimal>
-        <Button icon="dashboard" text="Dashboard" onClick={ui.openDashboard} active={ui.isDashboardOpen}/>
-        <Button icon="th" text="Loadings" onClick={ui.openLoadings} active={ui.isLoadingsOpen} />
+      <ButtonGroup>
+        <Button outlined icon="dashboard" text="Dashboard" intent="primary"
+          onClick={ui.openDashboard} active={ui.isDashboardOpen}/>
+        <Button outlined icon="th" text="Loadings" intent="primary"
+          onClick={ui.openLoadings} active={ui.isLoadingsOpen} />
       </ButtonGroup>
     </Navbar.Group>
     <Navbar.Group align={Alignment.RIGHT}>
       <ButtonGroup minimal>
-        <Button icon="add" text="Add loading" onClick={() => ui.openLoadingDialog(Loading.create())}/>
+        <Button icon="add" text="Add loading" intent="primary"
+          onClick={() => ui.openLoadingDialog(Loading.create())}/>
       </ButtonGroup>
     </Navbar.Group>
   </Navbar>;

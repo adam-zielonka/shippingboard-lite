@@ -1,4 +1,4 @@
-import { Card, Elevation } from "@blueprintjs/core";
+import { Card, Elevation, ProgressBar } from "@blueprintjs/core";
 import { observer } from "mobx-react-lite";
 import { Loading } from "../store/Loading";
 import { Ramp } from "../store/Ramp";
@@ -9,7 +9,7 @@ export const RampBox = observer(({ ramp }: { ramp: Ramp }) => {
   
   return <Card className="Ramp" elevation={Elevation.ONE}>
     <header>{ramp.description}</header>
-    <main>
+    <main className={ramp.status}>
       {ramp.loadings.map(l => <LoadingBox key={l.id} loading={l}/>)}
     </main>
   </Card>;
@@ -42,6 +42,7 @@ export const LoadingBox = observer(({ loading }: { loading: Loading }) => {
       <div>
         <b>{loading.picked}</b> of <b>{loading.pallets}</b>
       </div>
+      <ProgressBar animate={false} value={loading.loadedRatio} intent="success"/>
     </footer>
   </Card>;
 });
