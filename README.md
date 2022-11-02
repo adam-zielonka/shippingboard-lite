@@ -18,3 +18,7 @@ console.log(date.toLocaleDateString("pl", options)); // 22.10
 ### Error in DB crash application
 
 Maybe not existing customers or ramp
+
+### Connection to API
+
+Connect app to server for get/post loadings
