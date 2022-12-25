@@ -22,4 +22,10 @@ TODO: Screen form terminal with different version of node in different folders.
 
 Of course if you have not any project you can setup on version to be global using `nodenv global 18.12.1`, and you can use this version to generate projects.
 
+## PNPM - Package manager
 
+TODO
+
+## Vite.js - Frontend Tool
+
+TODO
