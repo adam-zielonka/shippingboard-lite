@@ -49,6 +49,13 @@ const config = {
           alt: "Frontend tutorial logo",
           src: "img/logo.png",
         },
+        items: [
+          {
+            href: "https://github.com/adam-zielonka/shippingboard-lite",
+            label: "GitHub",
+            position: "right",
+          },
+        ],
       },
       prism: {
         theme: lightCodeTheme,
