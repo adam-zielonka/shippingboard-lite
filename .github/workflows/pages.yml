@@ -44,7 +44,7 @@ jobs:
       - name: Build docusaurus
         run: cd docusaurus; pnpm build
       - name: Move docusaurus
-        run: mv docusaurus/build dist/docs
+        run: mv docusaurus/build dist/tutorial
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
