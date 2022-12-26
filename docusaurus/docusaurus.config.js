@@ -57,6 +57,14 @@ const config = {
           },
         ],
       },
+      announcementBar: {
+        id: "workinprogress",
+        content: "This tutorial is work in progress. Please be patient. Some mistakes may occur." +
+          " Final result can be different than presented here.",
+        backgroundColor: "#fafbfc",
+        textColor: "#091E42",
+        isCloseable: false,
+      },
       prism: {
         theme: lightCodeTheme,
         darkTheme: darkCodeTheme,
