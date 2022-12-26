@@ -1,4 +1,4 @@
-# 0.1. Tools around development
+# 1.2. Tools around development
 
 There are some differences between operation system (Windows, MacOS, or base on Linux), but my approach is to make my environment for development similar across operation systems.
 
