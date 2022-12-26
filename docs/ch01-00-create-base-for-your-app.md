@@ -1,4 +1,4 @@
-# Lesson 1. Create base for you app
+# Chapter 1. Create base for your app
 
 Let's start build React app using Vite and pnpm.
 
