@@ -1,4 +1,4 @@
-# Chapter 0. Explain the Tool Set
+# 0. Explain the Tool Set
 
 You should know some things about tools that are used during this training, but you should also be aware that this Tool Set can be valid in 2023, and probably will be working in future, there are some big possibilities that new tools arrive and change how we work.
 
