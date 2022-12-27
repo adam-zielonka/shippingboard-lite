@@ -48,7 +48,7 @@ And of course we need to add this component to `App`:
 
 ```tsx
 function App() {
-  return <div>
+  return <div className="app">
     <Counter />
   </div>;
 }
@@ -108,7 +108,7 @@ To say Mobx that this class will be store we need to use first spell `makeAutoOb
 
 So, if we have every thing we can just import this store and use in component:
 
-```tsx
+```tsx title="Store.ts"
 import { store } from './Store'
 
 const Counter = () => {
@@ -142,6 +142,53 @@ const Counter = observer(() => {
 And this is all magic that you need to know to starting working with mobx. But it isn't everything.
 
 ## Global store + Action for adding
+
+We also know the users. One counter is not enough for them. To solve this problem we can create new store that will be contain our `CounterStore`'s.
+
+```ts title="Store.ts"
+export class Store {
+  counters: CounterStore[] = [new CounterStore()]
+
+  constructor() {
+    makeAutoObservable(this)
+  }
+
+  addCounter = (): void => {
+    this.counters.push(new CounterStore())
+  }
+}
+
+export const store = new Store()
+```
+
+Now, we need to adjust components.
+
+```tsx
+const Counter = observer(({ counter }:{ counter: CounterStore }) => {
+  const [value, add, reset] = counter;
+
+  return <div className="counter">
+    ...
+  </div>;
+});
+```
+
+```tsx
+function App() {
+  const { counters, addCounter } = store
+
+  return <div className="app">
+    {counters.map((counter, i) => <Counter key={i} counter={counter} />)}
+    <button onClick={addCounter}>+</button>
+  </div>;
+}
+```
+
+And we need to remember that `App` now have some state that can be change why we need to add first spell and we can use this in the export line.
+
+```tsx
+export default observer(App);
+```
 
 ## Limit number of counters
 
