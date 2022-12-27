@@ -192,6 +192,39 @@ export default observer(App);
 
 ## Limit number of counters
 
+Sometimes we need to sey to users stop, you can not do this. You can only have 4 counters. So we can add geter that will be return true or false if user can add more counters.
+
+```ts title="Store.ts"
+export class Store {
+  //...
+  get canAddMoreCounters(): boolean {
+    return this.counters.length < 4
+  }
+  //...
+  addCounter = (): void => {
+    if (!this.canAddMoreCounters) return;
+
+    this.counters.push(new CounterStore());
+  }
+  //..
+}
+```
+
+If this getter change all components will be rerender.
+
+We can disable or hide button if we full of counters.
+
+```tsx
+function App() {
+  const { counters, addCounter } = store
+
+  return <div className="app">
+    {counters.map((counter, i) => <Counter key={i} counter={counter} />)}
+    {canAddMoreCounters && <button onClick={(addCounter}>+</button>}
+  </div>;
+}
+```
+
 ## Action for deleting
 
 ## Sum of all counters
