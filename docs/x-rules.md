@@ -2,7 +2,7 @@
 
 :::caution
 
-This is only my subjective opinion that came from my experience. They probably change in a future, but there is no commitment from my side to update this rule if I learn that they are wrong. Be careful using them, because this rules can be bad in your projects.
+This is only my subjective opinion that came from my experience. They probably change in a future, but there is no commitment from my side to update this rules if I learn that they are wrong. Be careful using them, because this rules can be bad in your projects.
 
 :::
 
