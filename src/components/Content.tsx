@@ -18,7 +18,7 @@ export const Content = observer(() => {
 
 export const LoadingsTable = observer(() => {
   return <div className="LoadingsTable">
-    {store.loadings.map(l => <div className={"line " + l.status} key={l.id} 
+    {store.loadings.map(l => <div className={"line"} key={l.id} 
       onClick={() => store.ui.openLoadingDialog(l)}>
       <div><b>{l.id}</b></div>
       <div>{l.start.date} <b>{l.start.time}</b>-{l.end.time}</div>
