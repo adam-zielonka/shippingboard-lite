@@ -42,7 +42,7 @@ export const LoadingBox = observer(({ loading }: { loading: Loading }) => {
       <div>
         <b>{loading.picked}</b> of <b>{loading.pallets}</b>
       </div>
-      <ProgressBar animate={false} value={loading.loadedRatio} intent="success"/>
+      <ProgressBar animate={false} value={loading.loadedRatio} intent={loading.isLoaded ? "success" : "primary"}/>
     </footer>
   </Card>;
 });
