@@ -65,7 +65,7 @@ export class Loading {
     date.setSeconds(0);
 
     const loading = new Loading(
-      "New",
+      "",
       undefined,
       0,
       0,

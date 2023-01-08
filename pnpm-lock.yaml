@@ -1,7 +1,7 @@
 lockfileVersion: 5.4
 
 specifiers:
-  '@blueprintjs/core': ^4.11.3
+  '@blueprintjs/core': ^4.13.0
   '@types/react': ^18.0.17
   '@types/react-dom': ^18.0.6
   '@typescript-eslint/eslint-plugin': ^5.40.0
@@ -18,7 +18,7 @@ specifiers:
   vite: ^3.1.0
 
 dependencies:
-  '@blueprintjs/core': 4.11.3_rj7ozvcq3uehdlnj3cbwzbi5ce
+  '@blueprintjs/core': 4.13.0_rj7ozvcq3uehdlnj3cbwzbi5ce
   mobx: 6.6.2
   mobx-react-lite: 3.4.0_qrr2ojv4n7h7ey2xj7njerqqr4
   react: 18.2.0
@@ -269,11 +269,11 @@ packages:
       '@babel/types': 7.19.4
     dev: true
 
-  /@babel/runtime/7.19.4:
-    resolution: {integrity: sha512-EXpLCrk55f+cYqmHsSR+yD/0gAIMxxA9QK9lnQWzhMCvt+YmoBN7Zx94s++Kv0+unHk39vxNO8t+CMA2WSS3wA==}
+  /@babel/runtime/7.20.7:
+    resolution: {integrity: sha512-UF0tvkUtxwAgZ5W/KrkHf0Rn0fdnLDU9ScxBrEVNUprE/MzirjK4MJUX1/BVDv00Sv8cljtukVK1aky++X1SjQ==}
     engines: {node: '>=6.9.0'}
     dependencies:
-      regenerator-runtime: 0.13.10
+      regenerator-runtime: 0.13.11
     dev: false
 
   /@babel/template/7.18.10:
@@ -312,12 +312,12 @@ packages:
       to-fast-properties: 2.0.0
     dev: true
 
-  /@blueprintjs/colors/4.1.7:
-    resolution: {integrity: sha512-4qmwwNabzJ6TbdWLjfVFqoCz6OPZpPDV6xvSmnEnS6tWSQ+bepi/ybzx3kKOGtNk1lu0tFDU6tnVti7uz23XaQ==}
+  /@blueprintjs/colors/4.1.10:
+    resolution: {integrity: sha512-p1rgfijpZi+r2xskyRi3uF8DRq08rb26u9Gymi0p4ZNZq/iLJQ1Fj1jfT8yh2yc6eCfs8GlH6iDNdU387wEK3w==}
     dev: false
 
-  /@blueprintjs/core/4.11.3_rj7ozvcq3uehdlnj3cbwzbi5ce:
-    resolution: {integrity: sha512-4W1Qp1IkJc4XBh9a8lFYbtfzppIijTqVpXlxjmGmxdqbHAzvZLS8LDE7KbHzpHZArnQcpBZ6mGFSxYVqGnKUOg==}
+  /@blueprintjs/core/4.13.0_rj7ozvcq3uehdlnj3cbwzbi5ce:
+    resolution: {integrity: sha512-LGpSxYf94CFJirOzsPyai0JaJcS2csKEhpyfrLnMb8ZrSPjMNyNx/5KZTKoZ0f7/GO7hrcuzpMBOkxQxcrVExA==}
     hasBin: true
     peerDependencies:
       '@types/react': ^16.14.32 || 17 || 18
@@ -327,8 +327,8 @@ packages:
       '@types/react':
         optional: true
     dependencies:
-      '@blueprintjs/colors': 4.1.7
-      '@blueprintjs/icons': 4.7.0
+      '@blueprintjs/colors': 4.1.10
+      '@blueprintjs/icons': 4.11.0
       '@juggle/resize-observer': 3.4.0
       '@types/dom4': 2.0.2
       '@types/react': 18.0.21
@@ -343,8 +343,8 @@ packages:
       tslib: 2.3.1
     dev: false
 
-  /@blueprintjs/icons/4.7.0:
-    resolution: {integrity: sha512-PIr9g71MogZOOTj/qiaCny8JouIJwBNFe3Rsdzeqeqg0j8fYVHRHwA7jYPmvNo64fDPgj9hUtQ7vPU6I7TJiBw==}
+  /@blueprintjs/icons/4.11.0:
+    resolution: {integrity: sha512-RkWwJb75hVg/OXh5QqWbKQxeAUY0LNds3fj/gCkneIyKKURNRk4yxIcdoUNBBYvINHp2BR53SRug8QA5bdFGiA==}
     dependencies:
       change-case: 4.1.2
       classnames: 2.3.2
@@ -953,7 +953,7 @@ packages:
   /dom-helpers/5.2.1:
     resolution: {integrity: sha512-nRCa7CK3VTrM2NmGkIy4cbK7IZlgBE/PYMn55rrXefr5xXDP0LdtfPnblFDoVdcAfslJ7or6iqAUnx0CCGIWQA==}
     dependencies:
-      '@babel/runtime': 7.19.4
+      '@babel/runtime': 7.20.7
       csstype: 3.1.1
     dev: false
 
@@ -2112,7 +2112,7 @@ packages:
     peerDependencies:
       react: 0.14.x || ^15.0.0 || ^16.0.0 || ^17.0.0
     dependencies:
-      '@babel/runtime': 7.19.4
+      '@babel/runtime': 7.20.7
       '@hypnosphi/create-react-context': 0.3.1_sh5qlbywuemxd2y3xkrw2y2kr4
       deep-equal: 1.1.1
       popper.js: 1.16.1
@@ -2133,7 +2133,7 @@ packages:
       react: '>=16.6.0'
       react-dom: '>=16.6.0'
     dependencies:
-      '@babel/runtime': 7.19.4
+      '@babel/runtime': 7.20.7
       dom-helpers: 5.2.1
       loose-envify: 1.4.0
       prop-types: 15.8.1
@@ -2154,8 +2154,8 @@ packages:
     dependencies:
       picomatch: 2.3.1
 
-  /regenerator-runtime/0.13.10:
-    resolution: {integrity: sha512-KepLsg4dU12hryUO7bp/axHAKvwGOCV0sGloQtpagJ12ai+ojVDqkeGSiRX1zlq+kjIMZ1t7gpze+26QqtdGqw==}
+  /regenerator-runtime/0.13.11:
+    resolution: {integrity: sha512-kY1AZVr2Ra+t+piVaJ4gxaFaReZVH40AKNo7UCX6W+dEwBo/2oZJzqfuN1qLq1oL45o56cPaTXELwrTh8Fpggg==}
     dev: false
 
   /regexp.prototype.flags/1.4.3:

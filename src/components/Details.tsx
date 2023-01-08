@@ -25,7 +25,7 @@ export const Details = observer(() => {
     return null;
   }
     
-  return <Dialog className="Details" isOpen={open} title={loading.id} 
+  return <Dialog className="Details" isOpen={open} title={loading.id || "New loading"} 
     onClose={startClose} onClosed={endClose}>
     <div className={Classes.DIALOG_BODY}>
       <section className="datetime">
