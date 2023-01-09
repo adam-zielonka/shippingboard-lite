@@ -1,0 +1,30 @@
+.LoadingsTable {
+  .line {
+    display: grid;
+    grid-template-columns: 70px 60px 1fr 150px 35px 35px 35px 35px 90px 50px;
+    padding: 5px;
+    gap: 15px;
+    border-bottom: 1px solid rgb(219, 219, 219);
+    
+    &:hover {
+      background-color: rgb(219, 219, 219);
+    }
+
+    .id {
+      color: gray;
+    }
+
+    .operator {
+      font-style: italic;
+      color: gray;
+    }
+
+    .time {
+      font-size: small;
+    }
+  }
+
+  header {
+    font-weight: bold;
+  }
+}
