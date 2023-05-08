@@ -44,9 +44,8 @@ export const Details = observer(() => {
         <FormGroup label="Ramp:" className="ramps-list">
           {ramps.map((r) => <Button key={r.id} className="ramp-button" outlined 
             active={r === loading.ramp} onClick={() => loading.setRamp(r)} 
-            intent={r.isEmpty ? Intent.NONE : r === loading.ramp ? Intent.PRIMARY : Intent.DANGER}>
+            intent={r === loading.ramp ? Intent.PRIMARY : Intent.NONE}>
             {r.description}
-            <sup>{r.quantity > 0 && r.quantity}</sup>
           </Button>)}
           <Button onClick={loading.clearRamp} active={!loading.ramp} outlined className="ramp-button">∅</Button>
         </FormGroup>

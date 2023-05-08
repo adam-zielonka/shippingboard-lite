@@ -16,7 +16,6 @@ function addQueryParam(name: string, value: string, defaultValue: string) {
 }
 
 export class UI {
-  view: View = "dashboard";
   selectedLoading?: Loading;
 
   constructor() {
@@ -25,11 +24,6 @@ export class UI {
 
   init = () => {
     const urlSearchParams = new URLSearchParams(window.location.search);
-
-    const view = urlSearchParams.get("view");
-    if (view === "loadings") {
-      this.view = "loadings";
-    }
     
     const loadingId = urlSearchParams.get("loading");
     if (loadingId) {
@@ -38,30 +32,13 @@ export class UI {
         this.selectedLoading = loading;
       }
     }
-    
-    reaction(() => this.view, view => addQueryParam("view", view, "dashboard"));
+
     reaction(() => this.selectedLoading, loading => addQueryParam("loading", loading?.id ?? "", ""));
   };
-
-  get isDashboardOpen(): boolean {
-    return this.view === "dashboard";
-  }
-
-  get isLoadingsOpen(): boolean {
-    return this.view === "loadings";
-  }
 
   get isLoadingDialogOpen(): boolean {
     return !!this.selectedLoading;
   }
-
-  openDashboard = () => {
-    this.view = "dashboard";
-  };
-
-  openLoadings = () => {
-    this.view = "loadings";
-  };
 
   openLoadingDialog = (loading: Loading) => {
     this.selectedLoading = loading;
