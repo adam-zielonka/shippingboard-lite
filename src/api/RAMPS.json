@@ -1,0 +1,30 @@
+[
+  {
+    "ramp_id": "001",
+    "description": "A"
+  },
+  {
+    "ramp_id": "002",
+    "description": "B"
+  },
+  {
+    "ramp_id": "003",
+    "description": "C"
+  },
+  {
+    "ramp_id": "004",
+    "description": "D"
+  },
+  {
+    "ramp_id": "005",
+    "description": "E"
+  },
+  {
+    "ramp_id": "006",
+    "description": "F"
+  },
+  {
+    "ramp_id": "007",
+    "description": "G"
+  }
+]

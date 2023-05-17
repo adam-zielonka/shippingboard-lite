@@ -1,9 +1,12 @@
 import { Customer } from "../store/Customer";
-import { CUSTOMERS, LOADINGS, RAMPS } from "./fakeApi";
+import { LOADINGS } from "./fakeApi";
 import { Loading } from "../store/Loading";
 import { Ramp } from "../store/Ramp";
 import { FromResponse } from "./parse";
 import { Delivery } from "../store/Delivery";
+import CUSTOMERS from "./CUSTOMERS.json";
+import RAMPS from "./RAMPS.json";
+
 
 export class API {
   getCustomers(): Customer[] {
