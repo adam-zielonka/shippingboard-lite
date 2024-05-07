@@ -32,11 +32,11 @@ jobs:
       - name: Install pnpm
         uses: pnpm/action-setup@v2
         with:
-          version: 8
+          version: 9
       - name: Install dependencies
         run: pnpm install
       - name: Build
-        run: pnpm build --base=/shippingboard-lite/
+        run: pnpm build
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
