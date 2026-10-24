@@ -10,7 +10,7 @@
     "lint": "eslint './src/**/*.{js,jsx,ts,tsx}'"
   },
   "dependencies": {
-    "@blueprintjs/core": "^5.19.1",
+    "@blueprintjs/core": "^6.21.0",
     "mobx": "^6.16.1",
     "mobx-react-lite": "^4.1.1",
     "react": "^18.3.1",
