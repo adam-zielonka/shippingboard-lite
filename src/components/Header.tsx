@@ -6,7 +6,7 @@ import { store } from "../store/Store";
 export const Header = observer(() => {
   const { ui } = store;
     
-  return <Navbar>
+  return <Navbar className="Header">
     <Navbar.Group align={Alignment.LEFT}>
       <Navbar.Heading>ShippingBoard Lite</Navbar.Heading>
       <Navbar.Divider />

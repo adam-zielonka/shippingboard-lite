@@ -4,11 +4,12 @@ import { Loading } from "../store/Loading";
 import { Ramp } from "../store/Ramp";
 import { store } from "../store/Store";
 import "./Ramp.scss";
+import { RampStatus } from "./RampStatus";
 
 export const RampBox = observer(({ ramp }: { ramp: Ramp }) => {
   
   return <Card className="Ramp" elevation={Elevation.ONE}>
-    <header>{ramp.description}</header>
+    <header><span>{ramp.description}</span><RampStatus status={ramp.status}/></header>
     <main className={ramp.status}>
       {ramp.loadings.map(l => <LoadingBox key={l.id} loading={l}/>)}
     </main>
@@ -19,7 +20,16 @@ export const LoadingBox = observer(({ loading }: { loading: Loading }) => {
   const { ui } = store;
   const { customer } = loading;
   
-  return <Card className="Loading" elevation={Elevation.TWO} interactive onClick={() => ui.openLoadingDialog(loading)}>
+  return <Card className="Loading" elevation={Elevation.TWO} interactive role="button" tabIndex={0}
+    data-loading-id={loading.id}
+    aria-label={`Open loading ${loading.id}`} aria-haspopup="dialog"
+    onClick={() => ui.openLoadingDialog(loading)}
+    onKeyDown={event => {
+      if (event.target === event.currentTarget && (event.key === "Enter" || event.key === " ")) {
+        event.preventDefault();
+        ui.openLoadingDialog(loading);
+      }
+    }}>
     <header>
       <div>{loading.id}</div>
     </header>

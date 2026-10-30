@@ -1,10 +1,19 @@
+.LoadingsTableScroll {
+  min-width: 0;
+  max-width: 100%;
+  overflow-x: auto;
+}
+
 .LoadingsTable {
+  min-width: 900px;
   .line {
     display: grid;
-    grid-template-columns: 70px 60px 1fr 150px 35px 35px 35px 35px 90px 50px;
+    grid-template-columns: 90px 60px minmax(140px, 1fr) 150px 35px 35px 35px 35px 90px 50px;
     padding: 5px;
     gap: 15px;
     border-bottom: 1px solid rgb(219, 219, 219);
+
+    > div { min-width: 0; overflow-wrap: anywhere; }
     
     &:hover {
       background-color: rgb(219, 219, 219);

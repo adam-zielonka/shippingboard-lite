@@ -17,8 +17,13 @@ export const Details = observer(() => {
   }
 
   function endClose() {
+    const id = loading?.id;
     ui.closeLoadingDialog();
     setOpen(true);
+    // A ramp change can remount the card, so the original trigger may no longer exist.
+    if (id) requestAnimationFrame(() => {
+      document.querySelector<HTMLElement>(`[data-loading-id="${CSS.escape(id)}"]`)?.focus();
+    });
   }
 
   if (!loading) {
@@ -52,7 +57,7 @@ export const Details = observer(() => {
         </FormGroup>
       </section>
       <section>
-        <ControlGroup fill>
+        <ControlGroup fill className="pallets">
           <FormGroup label="Pallets:">
             <NumericInput value={loading.picked} fill readOnly/>
           </FormGroup>
@@ -81,7 +86,7 @@ export const Details = observer(() => {
     </div>
     <div className={Classes.DIALOG_FOOTER}>
       <div className={Classes.DIALOG_FOOTER_ACTIONS}>
-        <Button onClick={ui.closeLoadingDialog}>Close</Button>
+        <Button onClick={startClose}>Close</Button>
       </div>
     </div>
   </Dialog>;

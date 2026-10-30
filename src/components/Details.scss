@@ -1,53 +1,57 @@
 .Details {
-  &.bp4-dialog {
+  &.bp5-dialog {
     width: 800px;
+    max-width: calc(100% - 20px);
+    max-height: calc(100dvh - 40px);
+    margin: 20px 0;
   }
 
   .datetime {
     display: grid;
-    grid-template-columns: 70px 70px 1fr;
+    grid-template-columns: 80px 80px minmax(130px, 1fr);
     gap: 15px;
   }
-  
+
   .pallets {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
   }
 
-  .times {
-    display: flex;
-    gap: 10px;
-  }
+  .times { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+  .ramps { width: 100%; }
 
-  .ramps {
-    width: 100%;
-  }
-  
   .ramps-list > div {
     display: flex;
-    justify-content: space-between;
+    gap: 8px;
     width: 100%;
     flex-wrap: wrap;
   }
 
-  .bp4-dialog-body {
+  .bp5-dialog-body {
+    min-height: 0;
+    overflow-y: auto;
     display: grid;
-    grid-template-columns: 3fr 2fr;
+    grid-template-columns: minmax(0, 3fr) minmax(0, 2fr);
     gap: 10px;
 
     section {
+      min-width: 0;
       background-color: white;
       padding: 10px;
-
-      border-style: solid;
-      border-color: rgb(218, 218, 218);
-      border-width: 1px;
+      border: 1px solid #dadada;
       border-radius: 3px;
     }
   }
 
-  .ramp-button {
-    width: 30px;
+  .ramp-button { min-width: 36px; }
+  .bp5-dialog-header, .bp5-dialog-footer { flex: none; }
+  input { min-width: 0; }
+
+  @media (max-width: 650px) {
+    .bp5-dialog-body { grid-template-columns: minmax(0, 1fr); }
+    .datetime { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .datetime > :last-child { grid-column: 1 / -1; }
+    .pallets { grid-template-columns: minmax(0, 1fr); }
   }
 }
-

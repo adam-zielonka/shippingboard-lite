@@ -1,4 +1,27 @@
 .App {
   display: grid;
   grid-template-rows: auto 1fr;
+  min-width: 0;
+
+  *, *::before, *::after { box-sizing: border-box; }
+
+  .Header.bp5-navbar {
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 10px;
+  }
+
+  .Header .bp5-navbar-group {
+    float: none;
+    height: auto;
+    min-width: 0;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .Header .bp5-navbar-divider { display: none; }
+  .Header .bp5-navbar-heading { margin: 0; }
 }
