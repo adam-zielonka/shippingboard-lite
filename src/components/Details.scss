@@ -1,5 +1,5 @@
 .Details {
-  &.bp5-dialog {
+  &.bp6-dialog {
     width: 800px;
     max-width: calc(100% - 20px);
     max-height: calc(100dvh - 40px);
@@ -28,7 +28,7 @@
     flex-wrap: wrap;
   }
 
-  .bp5-dialog-body {
+  .bp6-dialog-body {
     min-height: 0;
     overflow-y: auto;
     display: grid;
@@ -45,11 +45,11 @@
   }
 
   .ramp-button { min-width: 36px; }
-  .bp5-dialog-header, .bp5-dialog-footer { flex: none; }
+  .bp6-dialog-header, .bp6-dialog-footer { flex: none; }
   input { min-width: 0; }
 
   @media (max-width: 650px) {
-    .bp5-dialog-body { grid-template-columns: minmax(0, 1fr); }
+    .bp6-dialog-body { grid-template-columns: minmax(0, 1fr); }
     .datetime { grid-template-columns: repeat(2, minmax(0, 1fr)); }
     .datetime > :last-child { grid-column: 1 / -1; }
     .pallets { grid-template-columns: minmax(0, 1fr); }

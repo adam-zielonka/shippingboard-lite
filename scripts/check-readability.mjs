@@ -7,15 +7,26 @@ const base = process.env.TEST_URL || 'http://127.0.0.1:4192/';
 const out = process.env.EVIDENCE_DIR;
 if (out) await fs.mkdir(out, {recursive: true});
 const reports = [];
-function contrast(fg, bg, gray = false) {
-  const rgb = c => c.match(/[\d.]+/g).slice(0, 3).map(Number).map(x => x / 255);
-  const lum = c => {
-    let channels = rgb(c);
+function contrastRatios([foreground, background]) {
+  // Resolve CSS colors (including Blueprint's OKLCH tokens) to sRGB before measuring contrast.
+  const canvas = document.createElement('canvas');
+  canvas.width = canvas.height = 1;
+  const ctx = canvas.getContext('2d');
+  const rgb = color => {
+    ctx.fillStyle = color;
+    ctx.fillRect(0, 0, 1, 1);
+    return Array.from(ctx.getImageData(0, 0, 1, 1).data.slice(0, 3), x => x / 255);
+  };
+  const fg = rgb(foreground), bg = rgb(background);
+  const lum = (channels, gray) => {
     if (gray) channels = Array(3).fill(channels.reduce((v, x, i) => v + x * [0.2126, 0.7152, 0.0722][i], 0));
     return channels.reduce((v, x, i) => v + (x <= 0.04045 ? x / 12.92 : ((x + 0.055) / 1.055) ** 2.4)
       * [0.2126, 0.7152, 0.0722][i], 0);
   };
-  return (Math.max(lum(fg), lum(bg)) + 0.05) / (Math.min(lum(fg), lum(bg)) + 0.05);
+  return [false, true].map(gray => {
+    const a = lum(fg, gray), b = lum(bg, gray);
+    return (Math.max(a, b) + 0.05) / (Math.min(a, b) + 0.05);
+  });
 }
 
 async function fixture(page) {
@@ -78,7 +89,8 @@ try {
     ]) {
       assert.equal((await ramp(name).locator('.RampStatus').innerText()).replace(/\s+/g, ' '), `${symbol} ${state}`);
       assert.deepEqual(await ramp(name).locator('.Loading > footer > div:first-child').allTextContents(), counts);
-      const ratios = await ramp(name).locator('.bp5-progress-meter').evaluateAll(ns => ns.map(n => n.style.width));
+      const ratios = await ramp(name).locator('.bp6-progress-meter').evaluateAll(ns => ns.map(n => n.style.width));
+      assert.equal(ratios.length, counts.length);
       ratios.forEach((ratio, i) => { const [picked, total] = counts[i].split(' of ').map(Number);
         assert.ok(Math.abs(parseFloat(ratio) - picked / total * 100) < 0.001); });
     }
@@ -87,7 +99,7 @@ try {
     const colors = await page.locator('.RampStatus').first().evaluate(n => {
       const c = getComputedStyle(n); return {text: c.color, background: c.backgroundColor};
     });
-    const labelContrast = [false, true].map(gray => contrast(colors.text, colors.background, gray));
+    const labelContrast = await page.evaluate(contrastRatios, [colors.text, colors.background]);
     assert.ok(Math.min(...labelContrast) >= 4.5);
     const mode = mobile ? 'phone' : 'desktop';
     await shots(page, `${mode}-dashboard`);
@@ -101,7 +113,7 @@ try {
     const focus = await card.evaluate(n => {
       const c = getComputedStyle(n); return {color: c.outlineColor, background: c.backgroundColor, width: c.outlineWidth};
     });
-    const focusContrast = [false, true].map(gray => contrast(focus.color, focus.background, gray));
+    const focusContrast = await page.evaluate(contrastRatios, [focus.color, focus.background]);
     assert.ok(Math.min(...focusContrast) >= 3);
     assert.notEqual(focus.width, '0px');
     if (mobile) await card.tap(); else await page.keyboard.press('Enter');
@@ -118,7 +130,7 @@ try {
     const finalTime = page.locator('.Details .times input').last();
     await finalTime.scrollIntoViewIfNeeded();
     await finalTime.focus();
-    if (mobile) assert.ok(await page.locator('.Details .bp5-dialog-body').evaluate(n => n.scrollTop > 0));
+    if (mobile) assert.ok(await page.locator('.Details .bp6-dialog-body').evaluate(n => n.scrollTop > 0));
     await page.keyboard.press('Escape');
     await page.getByRole('dialog').waitFor({state: 'hidden'});
     if (!mobile) assert.equal(await card.evaluate(n => n === document.activeElement), true);
